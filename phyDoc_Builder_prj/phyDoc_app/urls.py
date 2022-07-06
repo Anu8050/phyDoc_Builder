@@ -1,7 +1,8 @@
 from django.urls import path
+from phyDoc_app import views
 
-from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+
+    path('create',views.insert, name='insert'),
 ]

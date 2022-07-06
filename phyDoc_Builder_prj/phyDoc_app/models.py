@@ -5,7 +5,10 @@ from django.db import models
 class Document_templates(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=80)
-    Document_template_path = models.models.TextField(max_length=500)
+    Document_template_path = models.TextField(max_length=500)
+    
+    def __str__(self):
+        return self.id
 
 class Document_details(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -13,3 +16,6 @@ class Document_details(models.Model):
     field_name = models.CharField(max_length=80)
     field_type = models.CharField(max_length=80)
     isRequired = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.id
