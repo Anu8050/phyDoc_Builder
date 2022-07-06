@@ -5,7 +5,7 @@ from django.db import models
 class Document_templates(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=80)
-    Document_template_path = models.models.models.FilePathField(_(""), path=None, match=None, recursive=recursive, max_length=100)
+    Document_template_path = models.models.TextField(max_length=500)
 
 class Document_details(models.Model):
     id = models.IntegerField(primary_key=True)
