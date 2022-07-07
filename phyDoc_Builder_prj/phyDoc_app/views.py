@@ -7,10 +7,24 @@ from django.contrib import messages
 #For inserting values
 def insert(request):
     if request.method == "POST":
-        id = request.POST.get('id')
-        name = request.POST.get('name')
-        Document_template_path = request.POST.get('Document_template_path')
+        id = request.POST['id']
+        name = request.POST['name']
+        Document_template_path = request.POST['Document_template_path']
         data = Document_templates(id=id, name=name, Document_template_path=Document_template_path)
         data.save()
-        messages.success(request, 'Your message has been sent!')
-    return render(request, 'insert.html')
+  
+        return redirect('show/')
+    else:
+        return render(request, 'insert.html')
+
+# Delete Employee
+def remove(request, pk):
+    document_templates = Document_templates.objects.get(id=pk)
+
+    if request.method == 'POST':
+        document_templates.delete()
+    context = {
+        'document_templates': document_templates,
+    }
+
+    return render(request, 'delete.html', context)

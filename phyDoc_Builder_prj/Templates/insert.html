@@ -5,19 +5,28 @@
     {% csrf_token %}
         <div class="form-group">
             <label for="id">id</label>
-            <input type="text" class="form-control" id="id" name="id" placeholder="Enter your id">
+            <input type="text" class="form-control" id="id" name="id" placeholder="Enter Document_templates id">
         </div>
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Document_templates Name">
         </div>
 
         <div class="form-group">
             <label for="Document_template_path">Document_template_path</label>
-            <input type="text" class="form-control" id="Document_template_path" name="Document_template_path" placeholder="Enter Your Document_template_path">
+            <input type="text" class="form-control" id="Document_template_path" name="Document_template_path" placeholder="Enter Document_template_path">
         </div>
         
         <button class="btn btn-primary" type="submit">Submit</button>
+
+        <div class="alert alert-danger" role="alert">
+            Do you want see Information of Document_templates?
+        </div>
+
+        <p>
+            <a href="{% url 'show-emp' %}">Go To Document_templates Information--></a>
+        </p>
+
     </form>
 
 </div>
