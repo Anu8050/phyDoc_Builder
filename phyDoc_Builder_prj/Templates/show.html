@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document_templates</title>
+</head>
+
+<body>
+    <h2 style="text-align:center"> Document_templates </h2>
+    <table align="center" style="margin: 0px auto;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Document_template_path</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for document_template in document_templates %}
+            <tr>
+                <td>{{document_template.id}}</td>
+                <td>{{document_template.name}}</td>
+                <td>{{document_template.Document_template_path}}</td>
+
+                <td>
+                    <a href="/edit/{{document_template.pk}}">Update</a>
+                </td>
+                <td>
+                    <a href="/remove/{{document_template.pk}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+    <br><br>
+    <div class="alert alert-danger" role="alert">
+        Do you want to enter more datails?
+    </div>
+
+    <p>
+        <a href="{% url 'insert' %}"><-- Go To Home Page</a>
+    </p>
+</body>
+
+</html>

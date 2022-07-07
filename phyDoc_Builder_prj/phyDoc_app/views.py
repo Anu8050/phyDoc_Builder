@@ -17,12 +17,18 @@ def insert(request):
     else:
         return render(request, 'insert.html')
 
-# Delete Employee
+#showing records
+def show(request):
+    document_templates = Document_templates.objects.all()
+    return render(request,'show.html',{'document_templates':document_templates} ) 
+
+# Deleting inserting value
 def remove(request, pk):
     document_templates = Document_templates.objects.get(id=pk)
 
     if request.method == 'POST':
         document_templates.delete()
+        return redirect('/show')
     context = {
         'document_templates': document_templates,
     }
